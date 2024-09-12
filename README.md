@@ -35,3 +35,5 @@ npm install
 ```bash
 node app.js
 ```
+### Hosted on
+- http://localhost:8084/
