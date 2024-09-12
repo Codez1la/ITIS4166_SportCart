@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs')%>
+        
+        <div class="form-wrapper">
+                <div class="form-container">
+                    <div class="left-form">
+                        <h1>Join our community of passionate sports card enthusiasts!</h1>
+                    </div>
+                    <div class="signup-container">
+                        <form action = '/users' method = 'POST' class="user-form">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                
+                                <label for="lastName">Last Name</label></td>
+                                <input type="text" id="lastName" name="lastName" required></td>
+                                
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email">
+                                
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" minlength="8" maxlength="64" required>
+        
+                                <input type="submit" value="Sign Up">      
+                        </form>
+                </div>
+                </div>
+            </div>
+    </div>
+
+<%- include('../partials/footer.ejs')%>

@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs')%>
+
+    
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="left-form">
+                    <h1>Edit your Listing!</h1>
+                </div>
+
+                <span class="form-sep"></span>
+
+                <form class="newCard" method = 'POST' action = "/items/<%= card.id%>?_method=PUT" enctype="multipart/form-data">
+                    <label for="condition">Condition</label>
+                    <select id="condition" name="condition">
+                        <% ['','Mint', 'Excellent', 'Good', 'Fair', 'Poor'].forEach(option => { %>
+                            <option value="<%= option %>" <%= card.condition === option ? 'selected' : '' %>><%= option %></option>
+                        <% }); %>
+                    </select>
+
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" value = "<%= card.title%>" required>
+
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" value="<%= card.price%>" required>
+
+                    <label for="description">Details</label>
+                    <textarea rows="5" id="description" name="description" required minlength="10"><%= card.description%></textarea>
+
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+
+                    <input type="submit" value="Submit">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer.ejs')%>

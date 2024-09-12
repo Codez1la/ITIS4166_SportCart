@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs')%>
+
+    <div class="content-items">
+        <div class="item-wrapper">
+            <div class="item-container">
+                <div class="item-banner">
+                    <img src="<%= card.image%>" alt="<%= card.title%>">
+                </div>
+                <div class="item-body">
+                    <h3><%= card.title%></h3>
+                    <p><b>Condition:</b> <%= card.condition%></p>
+                    <p><b>Seller:</b> <%= card.seller.firstName + ' ' + card.seller.lastName%></p>
+                    <p><b>Price:</b> $<%= card.price%> </p>
+                    <p><%= card.totalOffers%> offers</p>
+                    <p><%= card.description%></p>
+                    <%if(card.active){%>
+                        <form action = '/items/<%= card.id %>' method = 'POST'>
+                            <label for="offer">$</label>
+                            <input type="number" id="offer" name="offer" min="0" required>
+                            <button type="submit">Make an Offer</button>
+                        </form>
+                        <%if(card.totalOffers > 0){%> 
+                            <p>Current Highest Offer: $<%= card.highestOffer%></p>
+                        <%}%>
+                    <%} else {%>
+                        <p>*card is not active!*</p>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer.ejs')%>

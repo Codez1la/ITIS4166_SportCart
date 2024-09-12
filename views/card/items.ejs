@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+    
+    <div class="content-items">
+        <div class="card-wrapper">
+            <%if(cards.length) { %>
+                <%cards.forEach(card=>{%>
+                    <a href="/items/<%= card.id %>">
+                        <div class="card-container">
+                            <img src="<%= card.image%>" alt="<%= card.title%>">
+                            <div class="card-body">
+                                <h3><%= card.title%></h3>
+                                <p><%= card.condition%></p>
+                                <span class="seperator"></span>
+                                <div class="card-footer">
+                                    <p>$<%= card.price%></p>
+                                    <p><%= card.totalOffers%> offers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <%});%>
+            <%} else {%>
+                <div class="errorMSG">
+                    <h1>There are no cards to display!</h1>
+                </div>
+            <%}%>
+        </div>
+    </div>
+
+    <%- include('../partials/footer.ejs')%>

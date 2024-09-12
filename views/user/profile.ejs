@@ -1,0 +1,73 @@
+<%- include('../partials/header.ejs')%>
+
+<div class="form-wrapper">
+    <div class="form-container">
+        <div class="profile">
+            <div class="name-card">
+                <h2>Welcome, <%= user.firstName %>!</h2>
+            </div>
+            <div class="profile-card">
+                <h3>You have listed the following cards: </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Card Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (cards.length) { %>
+                            <% cards.forEach(card => { %>
+                                <tr>
+                                    <td><a href="/items/<%= card.id %>"><%= card.title %></a></td>
+                                    <td><%= card.active ? 'Active' : 'Inactive' %></td>
+                                    <td>
+                                        <form class="item-btn">
+                                            <button class="editBtn" type="submit" formmethod="GET" formaction="/items/<%= card.id %>/edit"><span class="material-symbols-outlined">edit</span></button>
+                                            <button class="deleteBtn" type="submit" formmethod="POST" formaction="/items/<%= card.id %>?_method=DELETE"><span class="material-symbols-outlined">delete</span></button>
+                                            <button class="viewBtn" type="submit" formmethod="GET" formaction="/items/<%= card._id %>/offers"><span class="material-symbols-outlined">search</span>View Offers</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="3">You have not listed any cards.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="profile-card">
+                <h3>My Offers:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Card Name</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (offers.length) { %>
+                            <% offers.forEach(offer => { %>
+                                <tr>
+                                    <td><a href="/items/<%= offer.item._id %>"><%= offer.item.title %></a></td>
+                                    <td><%= offer.status %></td>
+                                    <td>$<%= offer.amount %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="3">You have not made any offers.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs')%>

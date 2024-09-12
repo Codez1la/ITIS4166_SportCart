@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs')%>
+
+<div class="form-wrapper">
+    <div class="form-container">
+        <div class="profile-card">
+            <h3>Offers recieved from: <%= cards.title %></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Card Name</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (offers.length) { %>
+                        <% offers.forEach(offer => { %>
+                            <tr>
+                                <td><a href="/items/<%= offer.item._id %>"><%= offer.user.firstName + " " + offer.user.lastName %></a></td>
+                                <td>$<%= offer.amount %></td>
+                                <!-- <td><button action = '/items/<%= offer.item._id %>' type="submit" formmethod="POST">Accept</button></td> -->
+                                <td>
+                                    <form action="/items/<%= offer.item._id %>/offers/accept" method="POST">
+                                        <button type="submit">Accept</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="3">You have not made any offers.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs')%>

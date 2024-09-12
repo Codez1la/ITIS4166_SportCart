@@ -1,0 +1,552 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+}
+
+/* NAV */
+nav {
+  padding: 1rem;
+  color: black;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.nav-wrapper a {
+  text-decoration: none;
+  color: black;
+  transition: 0.2s
+}
+
+.nav-wrapper a:hover {
+  text-decoration: none;
+  color: red;
+  opacity: 1;
+}
+
+.searchbar {
+  display: flex;
+  align-self: center;
+  border: 1px solid black;
+}
+
+.searchbar input{
+  min-width: 250px;
+  min-height: 30px;
+  padding: 1em;
+  border: none;
+}
+
+.searchbar input:focus{
+  outline: none;
+}
+
+.searchbar button{
+  padding:1em;
+  border: none;
+}
+
+.searchbar button:hover{
+  cursor:pointer;
+}
+
+/* FLASH */
+.success {
+  background: rgba(108, 192, 112, 0.7);
+  color: #fff;
+  width: 70%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  padding: 0.5rem 0;
+
+}
+
+.error {
+  background: rgba(255, 102, 51, 0.7);
+  color: #fff;
+  width: 70%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* INDEX BODY */
+.body-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+}
+
+.title {
+  font-size: 10em;
+}
+
+.topImg {
+  background-image: url(/images/backgrounds/baseball\ background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Bebas Neue', sans-serif;
+  min-height: 25rem;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bot-box {
+  min-height: 24rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+}
+
+.boxImg:first-child {
+  background-color: blue;
+  font-family: 'Bebas Neue', sans-serif;
+  background-image: url(/images/backgrounds/hockey\ background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-width: 100%;
+}
+
+.boxImg:nth-child(2) {
+  background-color: green;
+  background-image: url(/images/backgrounds/football\ background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-width: 100%;
+}
+
+.boxImg:nth-child(2) button {
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s
+}
+
+.boxImg:nth-child(2) button:hover {
+  opacity: 1;
+  background-color: white;
+  color: #04AA6D;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ITEMS */
+.content{
+  background-image: url(/images/backgrounds/backgr.png);
+}
+
+.content-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: 14rem 14rem 14rem 14rem;
+  background-color: rgba(255, 255, 255, 0.588);
+  gap: 1rem;
+  width: fit-content;
+  padding: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.errorMSG{
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: max-content;
+  background-color: white;
+  border:3px solid black;
+  align-items: center;
+  padding: 1rem;
+  grid-column: 2/3;
+}
+
+.card-container {
+  padding: 0 0 1fr 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 5px 5px 1px rgba(5, 0, 35, 0.371);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-container img {
+  max-height: 18rem;
+  height: 400px;
+  width: 224px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 1rem;
+}
+
+.seperator {
+  display: block;
+  width: 100%;
+  border-top: 1px solid black;
+  opacity: 20%;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* ITEM */
+.item-wrapper {
+  padding: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  width: 50em;
+  background-color: white;
+  padding: 4rem;
+  border: 2px solid black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.item-banner img {
+  height: 400px;
+  width: 250px;
+  margin: 0 0 1rem 0;
+}
+
+.item-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.item-body h3,
+b {
+  color: #aa1504;
+}
+
+/* NEW ITEM */
+.form-wrapper {
+  background-image: url(/images/backgrounds/formbackground.jpg);
+  border-radius: 10%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 5em 1em 5em;
+  padding: 5em 0em;
+  border: 1px solid black;
+  box-shadow: 0 5px 5px 0 rgba(5, 0, 35, 0.246);
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  background-color: white;
+  border: 5px solid black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.form-sep {
+  border-left: 2px solid black;
+  height: 20em;
+}
+
+.left-form {
+  height: 350px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.newCard {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 20px;
+  padding: 2rem 1rem;
+}
+
+.newCard input,textarea {
+  padding: 5px;
+}
+
+.newCard textarea {
+  resize: none;
+}
+
+.newCard input[type="submit"] {
+  grid-column: 2;
+}
+
+/* PROFILE */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.name-card{
+  height: 100%;
+  width: 15rem;
+}
+
+.profile-card {
+  height: 100%;
+  width: 50rem;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+td a {
+  text-decoration: none;
+  color: #036541;
+  transition: 0.5s;
+}
+
+td a:hover{
+  text-decoration:underline;
+  color: rgb(39, 196, 39);
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.item-btn {
+  display: flex;
+  gap: .5em;
+  justify-content: end;
+}
+
+.item-btn button {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 4px 18px;
+  background-color: rgb(225, 225, 225);
+  border-color: black;
+  transition: 0.3s;
+  border: none;
+}
+
+.editBtn {
+  width: 20%;
+  transition: 0.3s;
+}
+
+.editBtn:hover {
+  opacity: 1;
+  width: 22%;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+}
+
+.deleteBtn {
+  width: 20%;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  width: 22%;
+  opacity: 1;
+  background-color: #ac0b0b;
+  padding: 4px 20px;
+  color: white;
+  border: none;
+}
+
+.viewBtn{
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.viewBtn:hover{
+  width: 42%;
+  opacity: 1;
+  background-color: #1671cd;
+  padding: 4px 20px;
+  color: white;
+  border: none;
+}
+
+/* SIGNUP */
+.signup-container {
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 400px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-container .user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container .user-form label {
+  margin-bottom: 5px;
+}
+
+.signup-container .user-form input {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-container .user-form input[type="submit"] {
+  background-color: #04AA6D;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-container .user-form input[type="submit"]:hover {
+  background-color: #036541;
+}
+
+/* LOGIN */
+.login-container {
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 400px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container .user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container .user-form label {
+  margin-bottom: 5px;
+}
+
+.login-container .user-form input {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container .user-form input[type="submit"] {
+  background-color: #04AA6D;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container .user-form input[type="submit"]:hover {
+  background-color: #036541;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: black;
+  color: white;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  padding: .5rem 4rem;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 6fr repeat(3, 5em);
+  font-family: 'Bebas Neue', sans-serif;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Project 1 - Sports Cart</title>
+    <link rel="icon" type="image/x-icon" href="/images/logos/logo.png">
+    <link rel=" stylesheet" href="/css/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <nav>
+        <a href="/"><img src="/images/logos/logo.png" height="100" alt="logo"></a>
+
+        <form class="searchbar">
+            <input for="search" type="text" placeholder="Search..." name="search">
+            <button type="submit" type="submit" formmethod="GET" formaction="/items"><i class="material-icons">search</i></button>
+        </form>
+
+        <div class="nav-wrapper">
+            <a href="/items/">Browse</a>
+            <a href="/items/new">Sell</a>
+            <%if(!user){%>
+                <a href='/users/new'>Sign Up</a>
+                <a href='/users/login'>Login</a>
+            <%} else {%>
+                <a href='/users/profile'>My Account</a>
+                <a href='/users/logout'>Logout</a>
+            <%}%>
+        </div>
+    </nav>
+
+    <div class="content">
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+    <% if(successMessages.length > 0) {%>
+
+        <% successMessages.forEach(message=>{%>
+            <div class='success'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
